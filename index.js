@@ -8,7 +8,7 @@ async function handler(req) {
 			page: 'https://www.turkishairlines.com/tr-tr/',
 		},
 	});
-  return res.json();
+  return new Response();
 }
 
 console.log("Listening on http://localhost:8000");
