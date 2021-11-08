@@ -1,4 +1,4 @@
-import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
+import { listenAndServe } from 'https://deno.land/std@0.111.0/http/server.ts';
 
 async function handler(req) {
 	const res = await fetch('https://www.turkishairlines.com/com.thy.web.online.ibs/ibs/booking/location/suggest', {
@@ -8,12 +8,13 @@ async function handler(req) {
 			page: 'https://www.turkishairlines.com/tr-tr/',
 		},
 	});
- return new Response(res.json(), {
-      headers: {
-        "content-type": "application/json; charset=UTF-8",
-      },
-    });
+	let json = await res.text();
+	return new Response(json, {
+		headers: {
+			'content-type': 'application/json; charset=UTF-8',
+		},
+	});
 }
 
-console.log("Listening on http://localhost:8000");
-await listenAndServe(":8000", handler);
+console.log('Listening on http://localhost:8000');
+await listenAndServe(':8000', handler);
