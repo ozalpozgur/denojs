@@ -8,7 +8,11 @@ async function handler(req) {
 			page: 'https://www.turkishairlines.com/tr-tr/',
 		},
 	});
-  return new Response();
+ return new Response(res.json(), {
+      headers: {
+        "content-type": "application/json; charset=UTF-8",
+      },
+    });
 }
 
 console.log("Listening on http://localhost:8000");
